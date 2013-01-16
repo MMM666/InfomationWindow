@@ -60,7 +60,7 @@ public class mod_WIW_InfomationWindow extends BaseMod {
 
 	@Override
 	public String getVersion() {
-		return "1.4.6-1";
+		return "1.4.7-1";
 	}
 
 	@Override
