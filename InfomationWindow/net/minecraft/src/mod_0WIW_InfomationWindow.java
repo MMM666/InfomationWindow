@@ -1,57 +1,23 @@
-package net.minecraft.src;
+﻿package net.minecraft.src;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextArea;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+public class mod_0WIW_InfomationWindow extends BaseMod {
 
-public class mod_WIW_InfomationWindow extends BaseMod {
+	@MLProp
+	public static int posX = 10;
+	@MLProp
+	public static int posY = 600;
 
-	class cwindow extends JFrame implements ChangeListener {
-		public JTextArea ftextarea1 = new JTextArea();
-		public JTextArea ftextarea2 = new JTextArea();
-		public JTextArea ftextarea3 = new JTextArea();
-		public JTextArea ftextarea4 = new JTextArea();
-	
-		public cwindow() {
-			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			
-			JScrollPane lscl1 = new JScrollPane(ftextarea1);
-			lscl1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-			JScrollPane lscl2 = new JScrollPane(ftextarea2);
-			lscl2.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-			JScrollPane lscl3 = new JScrollPane(ftextarea3);
-			lscl3.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-			JScrollPane lscl4 = new JScrollPane(ftextarea4);
-			lscl4.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-			
-			JTabbedPane ltab = new JTabbedPane();
-			ltab.add("EntityID", lscl1);
-			ltab.add("ItemID", lscl2);
-			ltab.add("BlockID", lscl3);
-			ltab.add("Chat", lscl4);
-			getContentPane().add(ltab);
-			
-			setTitle("InfomationWindow");
-			setSize(700, 400);
-			setVisible(true);
-		}
-	
-		@Override
-		public void stateChanged(ChangeEvent e) {
-		}
-	
+	private static WIW_FrameWindow fwindow;
+	static {
+		// Window作成
+		fwindow = new WIW_FrameWindow();
+		new WIW_SystemOut(fwindow.ftextarea5);
 	}
-
-	private cwindow fwindow;
-
 
 	@Override
 	public String getName() {
@@ -74,9 +40,8 @@ public class mod_WIW_InfomationWindow extends BaseMod {
 
 	@Override
 	public void modsLoaded() {
-		// Window�쐬
-		fwindow = new cwindow();
-		fwindow.setLocation(10, 600);
+		// Window作成
+		fwindow.setLocation(posX, posY);
 		
 		// EntityIDList
 		fwindow.ftextarea1.append("EntityID(Integer), EntityID(Byte), EntityName, ClassName\r\n");
@@ -110,7 +75,6 @@ public class mod_WIW_InfomationWindow extends BaseMod {
 				fwindow.ftextarea3.append(String.format("% 6d, %s, %S\r\n", lblock.blockID, ls, lblock.getClass().getName()));
 			}
 		}
-		
 	}
 
 	@Override
