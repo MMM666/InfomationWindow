@@ -1,4 +1,4 @@
-﻿package net.minecraft.src;
+package net.minecraft.src;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,7 +14,7 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 
 	private static WIW_FrameWindow fwindow;
 	static {
-		// Window作成
+		// Window�쐬
 		fwindow = new WIW_FrameWindow();
 		new WIW_SystemOut(fwindow.ftextarea5);
 	}
@@ -40,7 +40,7 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 
 	@Override
 	public void modsLoaded() {
-		// Window作成
+		// Window�쐬
 		fwindow.setLocation(posX, posY);
 		
 		// EntityIDList

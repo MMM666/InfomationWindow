@@ -1,4 +1,4 @@
-﻿package net.minecraft.src;
+package net.minecraft.src;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
