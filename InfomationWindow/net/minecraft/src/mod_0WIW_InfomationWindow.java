@@ -60,7 +60,7 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 		fwindow.ftextarea2.append("ItemID, ItemName, ClassName\r\n");
 		for (Item litem : Item.itemsList) {
 			if (litem != null) {
-				String ls = litem.getItemName();
+				String ls = litem.getUnlocalizedName();
 				if (ls == null) ls = "NULL";
 				fwindow.ftextarea2.append(String.format("% 6d, %s, %S\r\n", litem.itemID, ls, litem.getClass().getName()));
 			}
@@ -70,7 +70,7 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 		fwindow.ftextarea3.append("BlockID, BlockName, ClassName\r\n");
 		for (Block lblock : Block.blocksList) {
 			if (lblock != null) {
-				String ls = lblock.getBlockName();
+				String ls = lblock.getUnlocalizedName();
 				if (ls == null) ls = "NULL";
 				fwindow.ftextarea3.append(String.format("% 6d, %s, %S\r\n", lblock.blockID, ls, lblock.getClass().getName()));
 			}
