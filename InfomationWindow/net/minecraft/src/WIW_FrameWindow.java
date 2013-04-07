@@ -13,6 +13,10 @@ public class WIW_FrameWindow extends JFrame implements ChangeListener {
 	public JTextArea ftextarea3 = new JTextArea();
 	public JTextArea ftextarea4 = new JTextArea();
 	public JTextArea ftextarea5 = new JTextArea();
+	public JTextArea ftextarea6 = new JTextArea();
+	public JTabbedPane ftab = new JTabbedPane();
+
+
 
 	public WIW_FrameWindow() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -27,14 +31,16 @@ public class WIW_FrameWindow extends JFrame implements ChangeListener {
 		lscl4.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		JScrollPane lscl5 = new JScrollPane(ftextarea5);
 		lscl5.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		JScrollPane lscl6 = new JScrollPane(ftextarea6);
+		lscl6.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		
-		JTabbedPane ltab = new JTabbedPane();
-		ltab.add("EntityID", lscl1);
-		ltab.add("ItemID", lscl2);
-		ltab.add("BlockID", lscl3);
-		ltab.add("Chat", lscl4);
-		ltab.add("STDOUT", lscl5);
-		getContentPane().add(ltab);
+		ftab.add("EntityID", lscl1);
+		ftab.add("ItemID", lscl2);
+		ftab.add("BlockID", lscl3);
+		ftab.add("Chat", lscl4);
+		ftab.add("STDOUT", lscl5);
+		ftab.add("Entity", lscl6);
+		getContentPane().add(ftab);
 		
 		setTitle("InfomationWindow");
 		setSize(700, 400);
