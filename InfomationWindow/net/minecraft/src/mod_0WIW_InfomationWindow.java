@@ -25,7 +25,6 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 
 
 
-
 	private static WIW_FrameWindow fwindow;
 	static {
 		// WindowçÏê¨
@@ -223,7 +222,9 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 								(Boolean)lclass.getDeclaredField("mstatOpenInventory").get(targetSV),
 								(Boolean)lclass.getDeclaredField("mstatOpenInventory").get(targetCL)
 								));
-						
+						llines.add(String.format("Model: %04x / PlayRole:%04x",
+								(Integer)lclass.getDeclaredField("maidMode").get(targetSV),
+								(Integer)lclass.getDeclaredField("mstatPlayingRole").get(targetSV)));
 					} catch (Exception e) {
 					}
 				}
