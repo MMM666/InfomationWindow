@@ -38,17 +38,20 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 	}
 
 	@Override
-	public String getVersion() {
-		return "1.5.1-1";
-	}
-
-	@Override
 	public String getPriorities() {
 		return "after:*";
 	}
 
 	@Override
+	public String getVersion() {
+		return "1.5.2-1";
+	}
+
+	@Override
 	public void load() {
+		// MMMLibのRevisionチェック
+		MMM_Helper.checkRevision("1");
+		
 		// GUI を開くキーの登録と名称変換テーブルの登録
 		String s = "key.Lockon";
 		ModLoader.registerKey(this, new KeyBinding(s, 157), false);
