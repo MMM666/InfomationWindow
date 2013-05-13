@@ -153,6 +153,7 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 				llines.add(String.format("lastPos SV: %f, %f, %f / CL: %f, %f, %f", targetSV.lastTickPosX, targetSV.lastTickPosY, targetSV.lastTickPosZ, targetCL.lastTickPosX, targetCL.lastTickPosY, targetCL.lastTickPosZ));
 				llines.add(String.format("prevPos SV: %f, %f, %f / CL: %f, %f, %f", targetSV.prevPosX, targetSV.prevPosY, targetSV.prevPosZ, targetCL.prevPosX, targetCL.prevPosY, targetCL.prevPosZ));
 				llines.add(String.format("Motion SV: %f, %f, %f / CL: %f, %f, %f", targetSV.motionX, targetSV.motionY, targetSV.motionZ, targetCL.motionX, targetCL.motionY, targetCL.motionZ));
+				llines.add(String.format("Size w-h SV: %f-%f / CL: %f - %f", targetSV.width, targetSV.height, targetCL.width, targetCL.height));
 				if (targetSV instanceof EntityLiving) {
 					llines.add(String.format("Health=%d", ((EntityLiving)targetSV).health));
 				}
@@ -212,8 +213,8 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 						int lti = (Integer)lclass.getDeclaredField("textureIndex").get(targetSV);
 						int lai = (Integer)lclass.getDeclaredField("textureArmorIndex").get(targetSV);
 						llines.add(String.format("Texture=%s(%x), %s(%x)",
-								MMM_TextureManager.getIndexToString(lti), lti,
-								MMM_TextureManager.getIndexToString(lai), lai
+								MMM_TextureManager.getTextureBoxServer(lti).textureName, lti,
+								MMM_TextureManager.getTextureBoxServer(lai).textureName, lai
 								));
 						Object lo;
 						lo = (Object)lclass.getDeclaredField("maidOverDriveTime").get(targetSV);
