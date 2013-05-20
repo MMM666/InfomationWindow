@@ -13,7 +13,7 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 	@MLProp
 	public static int posX = 10;
 	@MLProp
-	public static int posY = 600;
+	public static int posY = 580;
 	@MLProp
 	public static int sizeX = 700;
 	@MLProp
