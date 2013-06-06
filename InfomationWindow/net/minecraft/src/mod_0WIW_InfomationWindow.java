@@ -210,11 +210,10 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 					lclass = MMM_Helper.getNameOfClass(ls);
 					try {
 						llines.add(String.format("C-Limit=%d(%f)", (Integer)lclass.getDeclaredField("maidContractLimit").get(targetSV), (Float)lclass.getMethod("getContractLimitDays").invoke(targetSV)));
-						int lti = (Integer)lclass.getDeclaredField("textureIndex").get(targetSV);
-						int lai = (Integer)lclass.getDeclaredField("textureArmorIndex").get(targetSV);
+						int[] lti = (int[])lclass.getDeclaredField("textureIndex").get(targetSV);
 						llines.add(String.format("Texture=%s(%x), %s(%x)",
-								MMM_TextureManager.getTextureBoxServer(lti).textureName, lti,
-								MMM_TextureManager.getTextureBoxServer(lai).textureName, lai
+								MMM_TextureManager.instance.getTextureBoxServer(lti[0]).textureName, lti[0],
+								MMM_TextureManager.instance.getTextureBoxServer(lti[1]).textureName, lti[1]
 								));
 						Object lo;
 						lo = (Object)lclass.getDeclaredField("maidOverDriveTime").get(targetSV);
@@ -229,6 +228,16 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 						llines.add(String.format("Model: %04x / PlayRole:%04x",
 								(Integer)lclass.getDeclaredField("maidMode").get(targetSV),
 								(Integer)lclass.getDeclaredField("mstatPlayingRole").get(targetSV)));
+						int lssda = (Integer)lclass.getDeclaredField("maidDominantArm").get(targetSV);
+						Object lssd = ((Object[])lclass.getDeclaredField("mstatSwingStatus").get(targetSV))[lssda];
+						Object lcsd = ((Object[])lclass.getDeclaredField("mstatSwingStatus").get(targetCL))[lssda];
+						Class lclass2 = MMM_Helper.getNameOfClass("LMM_SwingStatus");
+						llines.add(String.format("DominantArm: %d, ItemsSV: %b-%08d / ItemsCL: %b-%08d",
+								lssda,
+								lclass2.getDeclaredField("itemInUse").get(lssd) != null,
+								(Integer)lclass2.getDeclaredField("itemInUseCount").get(lssd),
+								lclass2.getDeclaredField("itemInUse").get(lcsd) != null,
+								(Integer)lclass2.getDeclaredField("itemInUseCount").get(lcsd)));
 					} catch (Exception e) {
 					}
 				}
