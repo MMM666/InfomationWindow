@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
 
 public class mod_0WIW_InfomationWindow extends BaseMod {
@@ -155,7 +154,7 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 				llines.add(String.format("Motion SV: %f, %f, %f / CL: %f, %f, %f", targetSV.motionX, targetSV.motionY, targetSV.motionZ, targetCL.motionX, targetCL.motionY, targetCL.motionZ));
 				llines.add(String.format("Size w-h SV: %f-%f / CL: %f - %f", targetSV.width, targetSV.height, targetCL.width, targetCL.height));
 				if (targetSV instanceof EntityLiving) {
-					llines.add(String.format("Health=%d", ((EntityLiving)targetSV).health));
+					llines.add(String.format("Health=%f", ((EntityLiving)targetSV).func_110143_aJ()));
 				}
 				if (targetSV instanceof EntityAgeable) {
 					llines.add(String.format("Age=%d", ((EntityAgeable)targetSV).getGrowingAge()));
