@@ -43,7 +43,7 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 
 	@Override
 	public String getVersion() {
-		return "1.6.1-1";
+		return "1.6.2-1";
 	}
 
 	@Override
@@ -153,8 +153,11 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 				llines.add(String.format("prevPos SV: %f, %f, %f / CL: %f, %f, %f", targetSV.prevPosX, targetSV.prevPosY, targetSV.prevPosZ, targetCL.prevPosX, targetCL.prevPosY, targetCL.prevPosZ));
 				llines.add(String.format("Motion SV: %f, %f, %f / CL: %f, %f, %f", targetSV.motionX, targetSV.motionY, targetSV.motionZ, targetCL.motionX, targetCL.motionY, targetCL.motionZ));
 				llines.add(String.format("Size w-h SV: %f-%f / CL: %f - %f", targetSV.width, targetSV.height, targetCL.width, targetCL.height));
-				if (targetSV instanceof EntityLiving) {
-					llines.add(String.format("Health=%f", ((EntityLiving)targetSV).func_110143_aJ()));
+				if (targetSV instanceof EntityLivingBase) {
+					EntityLivingBase lentitys = (EntityLivingBase)targetSV;
+					EntityLivingBase lentityc = (EntityLivingBase)targetSV;
+					llines.add(String.format("Health=%f / %f", lentitys.func_110143_aJ(), lentitys.func_110138_aP()));
+					llines.add(String.format("Age SV: %d / CL: %d", lentitys.entityAge, lentityc.entityAge));
 				}
 				if (targetSV instanceof EntityAgeable) {
 					llines.add(String.format("Age=%d", ((EntityAgeable)targetSV).getGrowingAge()));
