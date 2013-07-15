@@ -158,9 +158,22 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 					EntityLivingBase lentityc = (EntityLivingBase)targetSV;
 					llines.add(String.format("Health=%f / %f", lentitys.func_110143_aJ(), lentitys.func_110138_aP()));
 					llines.add(String.format("Age SV: %d / CL: %d", lentitys.entityAge, lentityc.entityAge));
+					AttributeInstance latts = lentitys.func_110148_a(SharedMonsterAttributes.field_111263_d);
+					AttributeInstance lattc = lentityc.func_110148_a(SharedMonsterAttributes.field_111263_d);
+					llines.add(String.format("Speed SV: %f / CL: %f",
+							latts == null ? 0F : latts.func_111126_e(),
+							lattc == null ? 0F : lattc.func_111126_e()
+							));
+					latts = lentitys.func_110148_a(SharedMonsterAttributes.field_111264_e);
+					lattc = lentityc.func_110148_a(SharedMonsterAttributes.field_111264_e);
+					llines.add(String.format("Attack SV: %f / CL: %f",
+							latts == null ? 0F : latts.func_111126_e(),
+							lattc == null ? 0F : lattc.func_111126_e()
+							));
+					
 				}
 				if (targetSV instanceof EntityAgeable) {
-					llines.add(String.format("Age=%d", ((EntityAgeable)targetSV).getGrowingAge()));
+					llines.add(String.format("GrowingAge=%d", ((EntityAgeable)targetSV).getGrowingAge()));
 				}
 				llines.add(String.format("onGround:%b, InWater:%b(%d)", targetSV.onGround, targetSV.inWater, targetSV.getAir()));
 				ls = "EIT_EntityChicken";
