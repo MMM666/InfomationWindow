@@ -225,10 +225,17 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 					lclass = MMM_Helper.getNameOfClass(ls);
 					try {
 						llines.add(String.format("C-Limit=%d(%f)", (Integer)lclass.getDeclaredField("maidContractLimit").get(targetSV), (Float)lclass.getMethod("getContractLimitDays").invoke(targetSV)));
-						int[] lti = (int[])lclass.getDeclaredField("textureIndex").get(targetSV);
-						llines.add(String.format("Texture=%s(%x), %s(%x)",
-								MMM_TextureManager.instance.getTextureBoxServer(lti[0]).textureName, lti[0],
-								MMM_TextureManager.instance.getTextureBoxServer(lti[1]).textureName, lti[1]
+						MMM_TextureData ltexds = (MMM_TextureData)lclass.getDeclaredField("textureData").get(targetSV);
+						MMM_TextureData ltexdc = (MMM_TextureData)lclass.getDeclaredField("textureData").get(targetCL);
+						llines.add(String.format("TextureSV=%s(%x), %s(%x), %x",
+								ltexds.textureBox[0].textureName, ltexds.textureIndex[0],
+								ltexds.textureBox[1].textureName, ltexds.textureIndex[1],
+								ltexds.color
+								));
+						llines.add(String.format("TextureCL=%s(%x), %s(%x), %x",
+								ltexdc.textureBox[0].textureName, ltexdc.textureIndex[0],
+								ltexdc.textureBox[1].textureName, ltexdc.textureIndex[1],
+								ltexdc.color
 								));
 						Object lo;
 						lo = (Object)lclass.getDeclaredField("maidOverDriveTime").get(targetSV);
@@ -240,7 +247,7 @@ public class mod_0WIW_InfomationWindow extends BaseMod {
 								(Boolean)lclass.getDeclaredField("mstatOpenInventory").get(targetSV),
 								(Boolean)lclass.getDeclaredField("mstatOpenInventory").get(targetCL)
 								));
-						llines.add(String.format("Model: %04x / PlayRole:%04x",
+						llines.add(String.format("ModeSV: %04x / PlayRole:%04x",
 								(Integer)lclass.getDeclaredField("maidMode").get(targetSV),
 								(Integer)lclass.getDeclaredField("mstatPlayingRole").get(targetSV)));
 						int lssda = (Integer)lclass.getDeclaredField("maidDominantArm").get(targetSV);
